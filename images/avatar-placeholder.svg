@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="50%" stop-color="#111c38" />
+      <stop offset="100%" stop-color="#070c1a" />
+    </linearGradient>
+
+    <!-- Ring Gradient -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#4facfe" />
+      <stop offset="100%" stop-color="#805af5" />
+    </linearGradient>
+
+    <!-- Tech Accent Gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#38ef7d" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <rect width="320" height="320" rx="160" fill="url(#bgGrad)" />
+
+  <!-- Outer Tech Orbit Rings -->
+  <circle cx="160" cy="160" r="148" fill="none" stroke="url(#ringGrad)" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.6" />
+  <circle cx="160" cy="160" r="136" fill="none" stroke="#00f2fe" stroke-width="1.5" opacity="0.25" />
+
+  <!-- Subtle Cyber Grid -->
+  <g opacity="0.12" stroke="#00f2fe" stroke-width="1">
+    <line x1="80" y1="40" x2="80" y2="280" />
+    <line x1="160" y1="20" x2="160" y2="300" />
+    <line x1="240" y1="40" x2="240" y2="280" />
+    <line x1="40" y1="120" x2="280" y2="120" />
+    <line x1="40" y1="200" x2="280" y2="200" />
+  </g>
+
+  <!-- Developer Silhouette / Avatar Body -->
+  <g id="avatarFigure">
+    <!-- Shoulder & Torso Base -->
+    <path d="M 70 270 C 75 220, 110 200, 160 200 C 210 200, 245 220, 250 270 Z" fill="#182344" stroke="url(#ringGrad)" stroke-width="2.5" />
+    <path d="M 105 270 L 160 215 L 215 270 Z" fill="#202f5c" opacity="0.6" />
+
+    <!-- Head / Silhouette -->
+    <ellipse cx="160" cy="130" rx="46" ry="52" fill="#1b274c" stroke="url(#ringGrad)" stroke-width="2.5" />
+    
+    <!-- Stylish Modern Glasses / Tech Visor -->
+    <rect x="122" y="118" width="76" height="20" rx="6" fill="#0b1329" stroke="#00f2fe" stroke-width="2" filter="url(#glow)" />
+    <line x1="126" y1="128" x2="194" y2="128" stroke="#00f2fe" stroke-width="2" opacity="0.8" />
+    <circle cx="142" cy="128" r="3.5" fill="#00f2fe" />
+    <circle cx="178" cy="128" r="3.5" fill="#00f2fe" />
+
+    <!-- Sleek Tech Hair -->
+    <path d="M 116 122 C 114 85, 140 70, 165 70 C 195 70, 206 90, 204 122 C 195 95, 175 88, 150 90 C 130 92, 120 108, 116 122 Z" fill="#0a1024" />
+  </g>
+
+  <!-- Glowing Inner Monogram Badge -->
+  <g transform="translate(160, 238)">
+    <rect x="-48" y="-18" width="96" height="36" rx="18" fill="#0b1126" stroke="#00f2fe" stroke-width="2" filter="url(#glow)" />
+    <text x="0" y="6" font-family="'Fira Code', 'Courier New', monospace" font-size="16" font-weight="700" fill="#00f2fe" text-anchor="middle" letter-spacing="1.5">&lt;MA /&gt;</text>
+  </g>
+
+  <!-- Floating Tech Badges / Sparks -->
+  <circle cx="65" cy="100" r="4" fill="#00f2fe" filter="url(#glow)" />
+  <circle cx="260" cy="90" r="3" fill="#4facfe" filter="url(#glow)" />
+  <circle cx="245" cy="220" r="4" fill="#38ef7d" filter="url(#glow)" />
+  <circle cx="75" cy="215" r="3" fill="#805af5" filter="url(#glow)" />
+</svg>

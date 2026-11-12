@@ -1,0 +1,1049 @@
+/* ========================================================
+   Musharraf Ali — Curriculum Vitae & Interactive Portfolio
+   Strict 60-30-10 Rule Implementation:
+   - 60% Background Canvas: #FFF8AD (Warm Pale Butter Yellow)
+   - 30% Secondary Surfaces & Ink: #111111 (Off-Black) & #FFFFFF
+   - 10% Accent: #ADDDFF (Sky Blue) for Interactive Elements & Tags
+   Framed with crisp 1.5px solid #111111 structural borders
+   ======================================================== */
+
+:root {
+    /* 60% Dominant Background Canvas */
+    --canvas-bg: #FFF8AD;          /* Warm pale butter yellow */
+    --canvas-bg-soft: #FDF9D8;     /* Subtle reading variant */
+
+    /* 30% Secondary Surfaces & Ink */
+    --ink-black: #111111;          /* Crisp off-black typography */
+    --ink-muted: #333333;          /* Secondary off-black text */
+    --ink-subtle: #555555;         /* Subtle metadata text */
+    --surface-white: #FFFFFF;      /* Pure white card and input surface */
+    --border-ink: #111111;         /* 1.5px solid #111111 structural border */
+
+    /* 10% Accent (Sky Blue) - Strictly Contained Interactive Elements & Tags */
+    --accent-blue: #ADDDFF;        /* Sky Blue */
+    --accent-blue-hover: #FFFFFF;  /* Crisp inversion on hover */
+
+    /* Form Validation Feedback Colors */
+    --feedback-success: #16A34A;
+    --feedback-error: #DC2626;
+    --feedback-error-bg: #FFF5F5;
+
+    /* Typography */
+    --font-editorial: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Transitions */
+    --ease-editorial: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--canvas-bg);
+}
+
+body {
+    background-color: var(--canvas-bg);
+    color: var(--ink-black);
+    font-family: var(--font-editorial);
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Page Canvas: Full-Width Responsive Edge-to-Edge Container */
+.page-canvas {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 4rem);
+    box-sizing: border-box;
+}
+
+/* Global Left Text Alignment */
+h1, h2, h3, h4, p, span, div, section, form, label, input, textarea {
+    text-align: left;
+    color: var(--ink-black);
+}
+
+/* Hairline / Structural Dividers: 1.5px Solid #111111 */
+.hairline-divider {
+    border: none;
+    border-top: 1.5px solid var(--border-ink);
+    margin: clamp(1.75rem, 3vw, 2.75rem) 0;
+    width: 100%;
+    opacity: 1;
+}
+
+/* Section Headings & Markers */
+.section-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.4rem;
+}
+
+/* Section Marker: Contained 10% Sky Blue with 1.5px Black Border */
+.section-marker {
+    display: inline-block;
+    width: 8px;
+    height: 1.4rem;
+    background: var(--accent-blue);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.section-heading {
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    font-weight: 800;
+    color: var(--ink-black);
+    letter-spacing: -0.025em;
+}
+
+.section-intro {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+/* Active Link Highlights: Black Underline & Sky Blue Background on Hover */
+.editorial-link {
+    color: var(--ink-black);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    font-weight: 700;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    transition: var(--ease-editorial);
+}
+
+.editorial-link:hover {
+    background-color: var(--accent-blue);
+    border: 1.5px solid var(--border-ink);
+    color: var(--ink-black);
+    text-decoration: none;
+}
+
+/* 30% Secondary Surface: Pure White Cards with 1.5px Solid #111111 Borders */
+.editorial-card {
+    background: var(--surface-white);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 8px;
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    width: 100%;
+    box-shadow: 3px 3px 0px rgba(17, 17, 17, 0.12);
+}
+
+.full-width-card {
+    width: 100%;
+}
+
+/* ========================================================
+   1. Identity / Hero Section (Full Screen Width 3-Column)
+   ======================================================== */
+.hero-identity {
+    display: grid;
+    grid-template-columns: 1.5fr 300px 1.2fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: center;
+    width: 100%;
+    padding-top: 0.25rem;
+}
+
+.identity-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cv-name {
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 800;
+    color: var(--ink-black);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    margin-bottom: 0.35rem;
+}
+
+.cv-headline {
+    font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+    color: var(--ink-muted);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+.cv-bio {
+    font-size: 1.05rem;
+    color: var(--ink-black);
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+}
+
+.identity-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* 10% Accent Primary Button: Sky Blue, 1.5px Black Border, Black Text */
+.action-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.85rem 1.6rem;
+    background-color: var(--accent-blue);
+    color: var(--ink-black);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--border-ink);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--ease-editorial);
+    box-shadow: 2px 2px 0px var(--border-ink);
+}
+
+.action-btn-primary:hover {
+    background-color: var(--surface-white);
+    color: var(--ink-black);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--border-ink);
+}
+
+/* Secondary Button: Crisp White, 1.5px Black Border, Sky Blue on Hover */
+.action-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.85rem 1.4rem;
+    background-color: var(--surface-white);
+    border: 1.5px solid var(--border-ink);
+    color: var(--ink-black);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--ease-editorial);
+    box-shadow: 2px 2px 0px var(--border-ink);
+}
+
+.action-btn-secondary:hover {
+    background-color: var(--accent-blue);
+    color: var(--ink-black);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--border-ink);
+}
+
+/* Center Picture Placeholder Figure */
+.profile-figure {
+    width: 100%;
+    max-width: 300px;
+    height: 380px;
+    margin: 0 auto;
+    border: 1.5px solid var(--border-ink);
+    border-radius: 8px;
+    background: var(--surface-white);
+    overflow: hidden;
+    box-shadow: 3px 3px 0px rgba(17, 17, 17, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    background: var(--canvas-bg);
+}
+
+/* Right Executive Credentials Card */
+.identity-card {
+    background: var(--surface-white);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 8px;
+    padding: clamp(1.5rem, 2.5vw, 2.25rem);
+    box-shadow: 3px 3px 0px rgba(17, 17, 17, 0.12);
+    width: 100%;
+}
+
+.id-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1.5px solid var(--border-ink);
+    margin-bottom: 1.25rem;
+}
+
+.id-card-label {
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    font-weight: 700;
+}
+
+/* 10% Accent GPA Pill */
+.gpa-pill {
+    padding: 0.25rem 0.65rem;
+    background: var(--accent-blue);
+    border: 1.5px solid var(--border-ink);
+    color: var(--ink-black);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 4px;
+}
+
+.id-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+.id-meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.id-meta-title {
+    font-size: 0.775rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-subtle);
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+.id-meta-desc {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink-black);
+}
+
+/* ========================================================
+   2. Education & Distinction (Full-Width)
+   ======================================================== */
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.entry-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink-black);
+    margin-bottom: 0.25rem;
+}
+
+.entry-subtext {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+}
+
+.entry-description {
+    font-size: 0.95rem;
+    color: var(--ink-black);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+}
+
+/* 10% Accent Tag Badge */
+.tag-badge {
+    padding: 0.35rem 0.75rem;
+    background: var(--accent-blue);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 4px;
+    font-size: 0.775rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--ink-black);
+}
+
+.coursework-block {
+    padding-top: 1.25rem;
+    border-top: 1.5px solid var(--border-ink);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.subheading-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+.coursework-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.grade-category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* 10% Accent Grade Pill */
+.grade-pill {
+    font-size: 0.825rem;
+    font-weight: 700;
+    width: fit-content;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    border: 1.5px solid var(--border-ink);
+    background: var(--accent-blue);
+    color: var(--ink-black);
+}
+
+.tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+/* 10% Accent Skill Pills: #ADDDFF with 1.5px solid #111111 border & #111111 text */
+.cv-tag {
+    font-size: 0.825rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--accent-blue);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 4px;
+    color: var(--ink-black);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    display: inline-block;
+    transition: var(--ease-editorial);
+}
+
+.cv-tag:hover {
+    background: var(--surface-white);
+    color: var(--ink-black);
+}
+
+/* ========================================================
+   3. Technical Stack (Full-Width Responsive 3-Column Grid)
+   ======================================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+/* 10% Accent Skill Index */
+.skill-index {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-black);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    background: var(--accent-blue);
+    border: 1.5px solid var(--border-ink);
+}
+
+/* ========================================================
+   4. Leadership & Quality Assurance (Full-Width Layout)
+   ======================================================== */
+.responsibilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1.5px solid var(--border-ink);
+}
+
+.resp-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.15rem;
+    background: var(--surface-white);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px rgba(17, 17, 17, 0.08);
+}
+
+/* 10% Accent Letter Marker */
+.resp-number {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--ink-black);
+    background: var(--accent-blue);
+    width: fit-content;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    border: 1.5px solid var(--border-ink);
+}
+
+.resp-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink-black);
+}
+
+.resp-text {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.55;
+}
+
+/* ========================================================
+   5. AI & Productivity Certifications (Full-Width Grid)
+   ======================================================== */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.cert-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.cert-card-wide {
+    grid-column: 1 / -1;
+}
+
+/* 10% Accent Certification Meta Tag */
+.cert-meta {
+    font-size: 0.75rem;
+    color: var(--ink-black);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--accent-blue);
+    width: fit-content;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+    border: 1.5px solid var(--border-ink);
+}
+
+.cert-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink-black);
+}
+
+.cert-desc {
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+    line-height: 1.55;
+}
+
+/* ========================================================
+   6. Campus Cafe: Desktop Screen-Within-a-Screen
+   (NO Internal Vertical Scrollbar · 1.5px Solid #111111 Frame)
+   ======================================================== */
+.showcase-block {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.showcase-frame-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0 1rem;
+    overflow: hidden;
+}
+
+/* Desktop Frame: 1.5px Solid #111111 Border, Crisp White Surface */
+.desktop-frame {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 1100px;
+    background: var(--surface-white);
+    border-radius: 8px;
+    border: 1.5px solid var(--border-ink);
+    box-shadow: 4px 4px 0px rgba(17, 17, 17, 0.15);
+    display: flex;
+    flex-direction: column;
+    transform-origin: center center;
+    will-change: transform, opacity;
+    margin: 0;
+}
+
+.desktop-topbar {
+    height: 46px;
+    background: var(--surface-white);
+    border-radius: 7px 7px 0 0;
+    display: flex;
+    align-items: center;
+    padding: 0 1.25rem;
+    gap: 1rem;
+    border-bottom: 1.5px solid var(--border-ink);
+}
+
+.topbar-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+.btn-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 1px solid var(--border-ink);
+}
+.btn-dot.red { background: #FF5F56; }
+.btn-dot.yellow { background: #FFBD2E; }
+.btn-dot.green { background: #27C93F; }
+
+.address-bar {
+    background: var(--canvas-bg);
+    color: var(--ink-black);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 4px;
+    border: 1.5px solid var(--border-ink);
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 10% Accent External Action Pill */
+.external-pill {
+    font-size: 0.775rem;
+    font-weight: 700;
+    color: var(--ink-black);
+    text-decoration: none;
+    padding: 4px 12px;
+    background: var(--accent-blue);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: var(--ease-editorial);
+}
+
+.external-pill:hover {
+    background: var(--surface-white);
+    color: var(--ink-black);
+}
+
+/* Desktop Screen Viewport: Tall enough to display the full page without internal vertical scrollbar */
+.desktop-screen {
+    width: 100%;
+    height: 1060px;
+    background: #FFFFFF;
+    border-radius: 0 0 7px 7px;
+    overflow: hidden;
+}
+
+.desktop-screen iframe {
+    width: 100%;
+    height: 1060px;
+    border: none;
+    background: #FFFFFF;
+    overflow: hidden;
+    display: block;
+}
+
+/* ========================================================
+   7. Campus Cafe: Robot Holding Mobile Screen
+   (1.5px Solid #111111 Mockup & Accents)
+   ======================================================== */
+.robot-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center center;
+    will-change: transform, opacity;
+    margin: 0 auto;
+}
+
+.robot-graphic {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto -52px auto;
+    z-index: 1;
+}
+
+/* Mobile Mockup: Off-black (#111111) Chassis with 1.5px solid #111111 Border */
+.mobile-device {
+    width: 330px;
+    height: 640px;
+    background: var(--ink-black);
+    border-radius: 40px;
+    border: 1.5px solid var(--border-ink);
+    box-shadow: 4px 4px 0px rgba(17, 17, 17, 0.2);
+    position: relative;
+    padding: 10px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.mobile-notch {
+    width: 110px;
+    height: 18px;
+    background: var(--ink-black);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 10;
+}
+
+.mobile-screen {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 30px;
+    border: 1.5px solid var(--border-ink);
+    overflow: hidden;
+}
+
+.mobile-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #FFFFFF;
+    display: block;
+}
+
+/* ========================================================
+   8. Contact Us Form (Full Screen Width 2-Column Responsive)
+   ======================================================== */
+.contact-section {
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: clamp(2rem, 4vw, 4.5rem);
+    width: 100%;
+    align-items: start;
+}
+
+.contact-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.contact-lead {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+}
+
+.contact-spec-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1.5px solid var(--border-ink);
+}
+
+.contact-spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.spec-label {
+    font-size: 0.775rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-subtle);
+    font-weight: 700;
+}
+
+.spec-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink-black);
+}
+
+/* 30% Secondary Surface Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    background: var(--surface-white);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 8px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    box-shadow: 3px 3px 0px rgba(17, 17, 17, 0.12);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-black);
+}
+
+.required-star {
+    color: var(--feedback-error);
+}
+
+/* Form Inputs: Pure White (#FFFFFF) with 1.5px Solid #111111 Black Border */
+.form-group input,
+.form-group textarea {
+    background: var(--surface-white);
+    border: 1.5px solid var(--border-ink);
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    color: var(--ink-black);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: var(--ease-editorial);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--border-ink);
+    background: var(--surface-white);
+    box-shadow: 0 0 0 3px var(--accent-blue);
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+    border-color: var(--feedback-error);
+    background: var(--feedback-error-bg);
+}
+
+.field-error {
+    font-size: 0.775rem;
+    color: var(--feedback-error);
+    min-height: 1rem;
+    display: block;
+}
+
+/* 10% Accent CTA Submit Button: Sky Blue (#ADDDFF), 1.5px Black Border, Black Text */
+.submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: fit-content;
+    padding: 0.95rem 2.2rem;
+    background-color: var(--accent-blue);
+    color: var(--ink-black);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--border-ink);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--ease-editorial);
+    margin-top: 0.25rem;
+    box-shadow: 3px 3px 0px var(--border-ink);
+}
+
+.submit-btn:hover {
+    background-color: var(--surface-white);
+    color: var(--ink-black);
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--border-ink);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Form Status Message */
+.form-status {
+    padding: 0.9rem 1.15rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.form-status.success {
+    background: #F0FDF4;
+    border: 1.5px solid var(--feedback-success);
+    color: var(--feedback-success);
+}
+
+.form-status.error {
+    background: var(--feedback-error-bg);
+    border: 1.5px solid var(--feedback-error);
+    color: var(--feedback-error);
+}
+
+/* ========================================================
+   Footer (Full Screen Width)
+   ======================================================== */
+.cv-footer {
+    width: 100%;
+    border-top: 1.5px solid var(--border-ink);
+    padding: 2.5rem 0;
+    margin-top: 2rem;
+    background: var(--canvas-bg);
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 clamp(1.5rem, 4vw, 4rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink-black);
+}
+
+.footer-copy {
+    font-size: 0.825rem;
+    color: var(--ink-muted);
+}
+
+/* ========================================================
+   Responsive Breakpoints & Dynamic Heights
+   ======================================================== */
+@media (max-width: 1180px) {
+    .hero-identity {
+        grid-template-columns: 1fr 280px;
+    }
+
+    .identity-card {
+        grid-column: 1 / -1;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .desktop-frame {
+        min-height: 1380px;
+    }
+    .desktop-screen {
+        height: 1340px;
+    }
+    .desktop-screen iframe {
+        height: 1340px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-canvas {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-identity {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .profile-figure {
+        max-width: 100%;
+        height: 340px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .robot-graphic {
+        width: 150px;
+        height: 150px;
+        margin-bottom: -35px;
+    }
+
+    .mobile-device {
+        width: 290px;
+        height: 560px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .desktop-frame {
+        min-height: 1550px;
+    }
+    .desktop-screen {
+        height: 1500px;
+    }
+    .desktop-screen iframe {
+        height: 1500px;
+    }
+}
